@@ -12,6 +12,7 @@ $gameTime.addEventListener('input', setGameTime);
 
 var score = 0;
 var isGameStarted = false;
+var colors = ['red', 'yellow', 'green', 'blue', 'brown', 'pink', 'black'];
 
 function show($el) {
     $el.classList.remove('hide');
@@ -82,10 +83,11 @@ function renderBox() {
     var gameSize = $game.getBoundingClientRect();
     var maxTop = gameSize.height - boxSize;
     var maxLeft = gameSize.width - boxSize;
+    var randomColorIndex = getRandom(0, colors.length);
 
     box.style.height = box.style.width = boxSize + 'px';
     box.style.position = 'absolute';
-    box.style.backgroundColor = '#000';
+    box.style.backgroundColor = colors[randomColorIndex];
     box.style.top = getRandom(0, maxTop) + 'px';
     box.style.left = getRandom(0, maxLeft) + 'px';
     box.style.cursor = 'pointer';
